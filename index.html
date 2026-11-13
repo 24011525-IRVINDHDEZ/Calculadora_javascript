@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Irvin Daniel Hernández Márquez">
+  <title>Calculadora básica | R4 - Programación web del lado del cliente</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="calculadora" class="calculadora">
+    <!-- Encabezado con el título solicitado -->
+    <header class="calculadora__encabezado">
+      <h1>Calculadora básica</h1>
+      <p class="subtitulo">Reto 4 · JavaScript</p>
+    </header>
+
+    <!-- Pantalla: muestra la operación en curso y el resultado -->
+    <section id="pantalla" class="pantalla" aria-label="Pantalla de la calculadora">
+      <p id="operacion" class="pantalla__operacion"></p>
+      <output id="resultado" class="pantalla__resultado" aria-live="polite">0</output>
+    </section>
+
+    <!-- Teclado: cada botón indica su acción con atributos data-* -->
+    <section id="teclado" class="teclado">
+      <button class="boton boton--limpiar" data-accion="limpiar">C</button>
+      <button class="boton boton--funcion" data-accion="borrar" aria-label="Borrar último dígito">⌫</button>
+      <button class="boton boton--funcion" data-accion="signo" aria-label="Cambiar signo">±</button>
+      <button class="boton boton--operador" data-accion="operador" data-valor="/" aria-label="Dividir">÷</button>
+
+      <button class="boton boton--numero" data-accion="numero" data-valor="7">7</button>
+      <button class="boton boton--numero" data-accion="numero" data-valor="8">8</button>
+      <button class="boton boton--numero" data-accion="numero" data-valor="9">9</button>
+      <button class="boton boton--operador" data-accion="operador" data-valor="*" aria-label="Multiplicar">×</button>
+
+      <button class="boton boton--numero" data-accion="numero" data-valor="4">4</button>
+      <button class="boton boton--numero" data-accion="numero" data-valor="5">5</button>
+      <button class="boton boton--numero" data-accion="numero" data-valor="6">6</button>
+      <button class="boton boton--operador" data-accion="operador" data-valor="-" aria-label="Restar">−</button>
+
+      <button class="boton boton--numero" data-accion="numero" data-valor="1">1</button>
+      <button class="boton boton--numero" data-accion="numero" data-valor="2">2</button>
+      <button class="boton boton--numero" data-accion="numero" data-valor="3">3</button>
+      <button class="boton boton--operador" data-accion="operador" data-valor="+" aria-label="Sumar">+</button>
+
+      <button class="boton boton--numero boton--cero" data-accion="numero" data-valor="0">0</button>
+      <button class="boton boton--numero" data-accion="punto" aria-label="Punto decimal">.</button>
+      <button id="btnResultado" class="boton boton--igual" data-accion="resultado">=</button>
+    </section>
+
+    <footer class="calculadora__pie">
+      <p>Tip: también puedes usar el teclado (0-9, + − * /, Enter, Esc, Retroceso).</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

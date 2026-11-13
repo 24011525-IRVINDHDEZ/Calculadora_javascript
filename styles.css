@@ -1,0 +1,169 @@
+/* ===== Variables de color y tipografía ===== */
+:root {
+  --fondo-pagina: #e9edf5;
+  --fondo-calculadora: #1e2433;
+  --fondo-pantalla: #f4f7ee;
+  --texto-pantalla: #1e2433;
+  --tecla-numero: #2e3648;
+  --tecla-funcion: #4a5468;
+  --tecla-operador: #f29e38;
+  --tecla-igual: #2bb38a;
+  --tecla-limpiar: #e2574c;
+  --texto-claro: #ffffff;
+  --fuente-general: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --fuente-pantalla: "Consolas", "Courier New", monospace;
+}
+
+/* ===== Selectores de elemento ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fuente-general);
+  background: linear-gradient(135deg, var(--fondo-pagina), #c9d3e6);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--texto-claro);
+  letter-spacing: 0.5px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ===== Selectores de id ===== */
+#calculadora {
+  width: 340px;
+  padding: 24px;
+  background-color: var(--fondo-calculadora);
+  border: 3px solid #12161f;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(30, 36, 51, 0.45);
+}
+
+#pantalla {
+  margin: 18px 0 20px;
+  padding: 14px 16px;
+  min-height: 96px;
+  background-color: var(--fondo-pantalla);
+  border: 3px solid #9fb08a;
+  border-radius: 12px;
+  text-align: right;
+  overflow: hidden;
+}
+
+#resultado {
+  display: block;
+  font-family: var(--fuente-pantalla);
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--texto-pantalla);
+  word-break: break-all;
+}
+
+#btnResultado {
+  font-size: 1.6rem;
+}
+
+/* ===== Selectores de clase ===== */
+.calculadora__encabezado {
+  text-align: center;
+}
+
+.subtitulo {
+  font-size: 0.85rem;
+  color: #aab4c8;
+}
+
+.pantalla__operacion {
+  min-height: 1.4rem;
+  font-family: var(--fuente-pantalla);
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.boton {
+  height: 62px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--texto-claro);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  transition: transform 0.08s, filter 0.15s;
+}
+
+.boton:hover {
+  filter: brightness(1.15);
+}
+
+.boton:active,
+.boton.presionado {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+.boton:focus-visible {
+  outline: 3px solid #8ec5ff;
+  outline-offset: 2px;
+}
+
+.boton--numero   { background-color: var(--tecla-numero); }
+.boton--funcion  { background-color: var(--tecla-funcion); }
+.boton--operador { background-color: var(--tecla-operador); color: #1e2433; }
+.boton--igual    { background-color: var(--tecla-igual); }
+.boton--limpiar  { background-color: var(--tecla-limpiar); }
+
+/* El operador elegido se resalta mientras espera el siguiente número */
+.boton--operador.activo {
+  background-color: var(--texto-claro);
+  color: var(--tecla-operador);
+  border-color: var(--tecla-operador);
+}
+
+/* El cero ocupa dos columnas, como en las calculadoras físicas */
+.boton--cero {
+  grid-column: span 2;
+}
+
+.pantalla--error #resultado {
+  color: var(--tecla-limpiar);
+  font-size: 1.5rem;
+  word-break: normal;
+}
+
+.calculadora__pie {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: #aab4c8;
+  text-align: center;
+}
+
+/* ===== Adaptación a pantallas pequeñas ===== */
+@media (max-width: 400px) {
+  #calculadora {
+    width: 94vw;
+    padding: 16px;
+  }
+}
